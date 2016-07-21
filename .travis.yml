@@ -6,7 +6,7 @@ addons:
     - libgpgme11-dev
 
 php:
-  - 5.4
+  - 5.6
 
 env:
   - DB=mysql
@@ -16,9 +16,6 @@ services:
 
 matrix:
   fast_finish: true
-  include:
-    - php: 5.4
-      env: PHPCS=1
 
 before_script:
   - if [ $DB = 'mysql' ]; then sudo apt-get -y install mysql-server; fi
@@ -47,7 +44,7 @@ before_script:
   - cp app/Config/email.php.default app/Config/email.php
   - sed -i 's/\('debug', 0\)/('debug', 1\)/' app/Config/core.php \
 script:
-  - sh -c "if [ '$PHPCS' != '1' ]; then ./app/Console/cake test app All --stderr --stderr; fi"
+  - ./app/Console/cake test app All --stderr"
 
 notifications:
   email: false
