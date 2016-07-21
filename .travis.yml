@@ -19,7 +19,6 @@ matrix:
 
 before_script:
   - if [ $DB = 'mysql' ]; then sudo apt-get -y install mysql-server; fi
-  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE passbolt;'; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE passbolt_test;'; fi"
   - chmod -R 777 ./app/tmp
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.3" ]] ; then pecl install timezonedb ; fi
@@ -33,8 +32,8 @@ before_script:
     class DATABASE_CONFIG {
       public \$test = array(
         'datasource' => 'Database/Mysql',
-        'database' => 'cakephp_test',
-        'host' => '0.0.0.0',
+        'database' => 'passbolt_test',
+        'host' => '127.0.0.1',
         'login' => 'travis',
         'persistent' => false,
       );
