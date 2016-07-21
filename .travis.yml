@@ -46,8 +46,7 @@ before_script:
   - cp app/Config/email.php.default app/Config/email.php
   - RUN sed -i 's/\('debug', 0\)/('debug', 1\)/' app/Config/core.php \
 script:
-  - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllTests --stderr; fi"
-  - sh -c "if [ '$PHPCS' = '1' ]; then ~/.composer/vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./lib/Cake; fi;"
+  - sh -c "if [ '$PHPCS' != '1' ]; then ./app/Console/cake test app All --stderr --stderr; fi"
 
 notifications:
   email: false
