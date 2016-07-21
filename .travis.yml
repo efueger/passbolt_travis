@@ -41,8 +41,8 @@ before_script:
   - cp app/Config/app.php.default app/Config/app.php
   - cp app/Config/email.php.default app/Config/email.php
   - sed -i "s/('debug',\s0)/('debug', 1)/" ./app/Config/core.php
-  - head ./app/Config/core.php -n 45
-  - whoami
+  - head ./app/Config/core.php -n 42 | tail -1
+  - echo `whoami`
 script:
   - ./app/Console/cake install --data=unittests --no-admin
   - ./app/Console/cake test app All --stderr
