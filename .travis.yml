@@ -41,7 +41,7 @@ before_script:
   - cp app/Config/app.php.default app/Config/app.php
   - cp app/Config/email.php.default app/Config/email.php
   - sed -i "s/('debug',\s1)/('debug', 0)/" ./app/Config/core.php
-  - head ./app/Config/core.php -n 40
+  - head ./app/Config/core.php -n 45
 script:
   - ./app/Console/cake install --data=unittests --no-admin
   - ./app/Console/cake test app All --stderr
