@@ -43,6 +43,7 @@ before_script:
   - cp app/Config/email.php.default app/Config/email.php
   - sed -i 's/\('debug', 0\)/('debug', 1\)/' app/Config/core.php
 script:
+  - ./app/Console/cake install --data=unittests --no-admin
   - ./app/Console/cake test app All --stderr
 
 notifications:
