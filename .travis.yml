@@ -42,9 +42,9 @@ before_script:
   - cp app/Config/core.php.default app/Config/core.php
   - cp app/Config/app.php.default app/Config/app.php
   - cp app/Config/email.php.default app/Config/email.php
-  - sed -i 's/\('debug', 0\)/('debug', 1\)/' app/Config/core.php \
+  - sed -i 's/\('debug', 0\)/('debug', 1\)/' app/Config/core.php
 script:
-  - ./app/Console/cake test app All --stderr"
+  - ./app/Console/cake test app All --stderr
 
 notifications:
   email: false
