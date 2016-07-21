@@ -25,7 +25,6 @@ matrix:
     - php: 5.4
       env: PHPCS=1
 
-
 before_script:
   - sudo locale-gen en_EN
   - if [ $DB = 'mysql' ]; then sudo apt-get -y install mysql-server; fi
