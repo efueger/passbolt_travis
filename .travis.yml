@@ -24,7 +24,6 @@ before_script:
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.3" ]] ; then pecl install timezonedb ; fi
   - pecl install gnupg
   - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - echo "extension=gnupg.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - phpenv rehash
   - set +H
   - chmod -R 777 app/tmp
@@ -41,7 +40,7 @@ before_script:
   - cp app/Config/core.php.default app/Config/core.php
   - cp app/Config/app.php.default app/Config/app.php
   - cp app/Config/email.php.default app/Config/email.php
-  - sed -i 's/\('debug', 0\)/('debug', 1\)/' app/Config/core.php
+  - sed -i "s/('debug',\s1)/('debug', 0)/" app/Config/core.php
 script:
   - ./app/Console/cake install --data=unittests --no-admin
   - ./app/Console/cake test app All --stderr
