@@ -17,16 +17,9 @@ matrix:
   fast_finish: true
   include:
     - php: 5.4
-      env: DB=pgsql
-
-    - php: 5.4
-      env: DB=sqlite
-
-    - php: 5.4
       env: PHPCS=1
 
 before_script:
-  - sudo locale-gen en_EN
   - if [ $DB = 'mysql' ]; then sudo apt-get -y install mysql-server; fi
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE passbolt;'; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE passbolt_test;'; fi"
