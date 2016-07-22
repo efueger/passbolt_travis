@@ -54,8 +54,8 @@ before_script:
   - cp app/Config/app.php.default app/Config/app.php
   - cp app/Config/email.php.default app/Config/email.php
   - sed -i "s/('debug',\s0)/('debug', 1)/" ./app/Config/core.php
-  - mkdir /home/travis/.gnupg
-  - chown travis /home/travis/.gnupg \
+  - ls -alh /home/travis/.gnupg
+  - chown travis /home/travis/.gnupg
   - chmod 0777 /home/travis/.gnupg
 script:
   - ./app/Console/cake install --data=unittests --no-admin
