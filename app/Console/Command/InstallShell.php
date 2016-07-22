@@ -91,7 +91,7 @@ class InstallShell extends AppShell {
 		$this->_config = Configure::read();
 
 		// init gnupg keyring
-		//$this->_initGpgKeyring();
+		$this->_initGpgKeyring();
 
 		// try to build from cache if requested and possible
 		if (isset($this->params['quick']) && $this->params['quick'] != 'false') {
