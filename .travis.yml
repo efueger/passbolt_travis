@@ -16,7 +16,6 @@ addons:
     - php5-xdebug
     - php5-xsl
     - php5-intl
-    - gpa
     - gnupg2
 
 php:
