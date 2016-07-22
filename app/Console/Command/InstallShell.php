@@ -89,6 +89,7 @@ class InstallShell extends AppShell {
  */
 	public function main() {
 		$this->_config = Configure::read();
+		echo "current user: " . get_current_user ();
 
 		// init gnupg keyring
 		$this->_initGpgKeyring();
