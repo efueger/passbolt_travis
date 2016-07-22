@@ -66,7 +66,11 @@ before_script:
   - sed -i "s/('debug',\s0)/('debug', 1)/" ./app/Config/core.php
   - sed -i "s/DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi/DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgbC9mi/" ./app/Config/core.php
   - sed -i "s/76859309657453542496749683645/76859309357453542496749683645/" ./app/Config/core.php
+  - sed -i "s/\/\/Configure::write('App.fullBaseUrl',\s'http:\/\/example.com');/Configure::write('App.fullBaseUrl', 'http:\/\/127.0.0.1');/" ./app/Config/core.php
   - sed -i "s/\/home\/www-data\/.gnupg/\/home\/travis\/.gnupg/" ./app/Config/app.php
+  - sed -i "s/'App.force_ssl'\s=>\strue/'App.force_ssl' => false/" ./app/Config/app.php
+  - cat ./app/Config/core.php
+  - cat ./app/Config/app.php
   - gpg --allow-secret-key-import --import ./app/Config/gpg/unsecure_private.key
   - chown travis /home/travis/.gnupg
   - chmod -R 0777 /home/travis/.gnupg
