@@ -21,27 +21,6 @@ App::uses('InstallShell', 'Console/Command');
  */
 class InstallShellTest extends CakeTestCase {
 
-	public $fixtures = array(
-		'app.resource',
-		'app.category',
-		'app.categories_resource',
-		'app.user',
-		'app.group',
-		'app.groups_user',
-		'app.role',
-		'app.profile',
-		'app.file_storage',
-		'app.gpgkey',
-		'app.permission',
-		'app.permissions_type',
-		'app.permission_view',
-		'app.authenticationLog',
-		'app.authenticationBlacklist',
-		'core.cakeSession',
-		'app.user_agent',
-		'app.controller_log'
-	);
-
 /**
  * setUp method
  *

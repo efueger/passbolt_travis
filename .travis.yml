@@ -19,7 +19,7 @@ addons:
     - gnupg2
 
 php:
-  - 5.6
+  - 5.4
 
 env:
   - DB=mysql
