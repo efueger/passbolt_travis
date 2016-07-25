@@ -74,6 +74,7 @@ before_script:
   - gpg --allow-secret-key-import --import ./app/Config/gpg/unsecure_private.key
   - chown travis /home/travis/.gnupg
   - chmod -R 0777 /home/travis/.gnupg
+
 script:
   - ./app/Console/cake test app All --stderr
 
