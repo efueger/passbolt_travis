@@ -216,11 +216,11 @@ class InstallShell extends AppShell {
 	public function schema() {
 		$this->out('Installing schema / database');
 		$this->hr();
-		$this->dispatchShell('schema create --yes' . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' -c ' . $this->params['connection'] : ''));
+		$this->dispatchShell('schema create --force_drop --force_create' . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' --connection ' . $this->params['connection'] : ''));
 		$this->out('passbolt schema deployed');
-		$this->dispatchShell('schema create sessions --yes' . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' -c ' . $this->params['connection'] : ''));
+		$this->dispatchShell('schema create sessions --force_drop --force_create' . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' --connection ' . $this->params['connection'] : ''));
 		$this->out('passbolt session table deployed');
-		$this->dispatchShell('schema create --plugin FileStorage --yes' . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' -c ' . $this->params['connection'] : ''));
+		$this->dispatchShell('schema create --plugin FileStorage --force_drop --force_create' . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' --connection ' . $this->params['connection'] : ''));
 		$this->out('plugins schemas deployed');
 	}
 
@@ -231,7 +231,7 @@ class InstallShell extends AppShell {
  * @return void
  */
 	public function data($options = 'default') {
-		$this->dispatchShell('data import --data=' . $options . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' -c ' . $this->params['connection'] : ''));
+		$this->dispatchShell('data import --data=' . $options . (isset($this->params['quiet'] ) && $this->params['quiet'] == 1 ? ' -q' : '') . (isset($this->params['connection']) ? ' --connection ' . $this->params['connection'] : ''));
 	}
 
 /**
