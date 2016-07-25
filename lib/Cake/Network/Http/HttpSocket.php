@@ -376,7 +376,7 @@ class HttpSocket extends CakeSocket {
 		// SSL context is set during the connect() method.
 		$this->write($this->request['raw']);
 
-		print_r($this->request['uri']);
+		print_r($this->request);
 
 		$response = null;
 		$inHeader = true;
