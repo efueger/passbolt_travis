@@ -67,7 +67,7 @@ class SeleniumTestsControllerTest extends ControllerTestCase {
 		Configure::write('App.selenium.active', false);
 		Configure::write('debug', 0);
 		$HttpSocket = new HttpSocket();
-		$results = $HttpSocket->get('/users');
+		$results = $HttpSocket->get(Configure::read('App.fullBaseUrl') . '/users');
 	}
 
 	/**
