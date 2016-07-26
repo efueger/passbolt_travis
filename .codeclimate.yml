@@ -1,0 +1,7 @@
+## Exclusions
+exclude_paths:
+- "patches"
+- "Plugin"
+- "Vendor"
+- "jenkins"
+- "app/webroot/js"

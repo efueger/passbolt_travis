@@ -64,7 +64,7 @@ before_script:
   - sed -i "s/'active'\s=>\sfalse,/'active' => true,/" ./app/Config/app.php
 
 script:
-  - ./app/Console/cake test app All --stderr --exclude-group SeleniumTests
+  - ./app/Console/cake test app All --stderr
 
 notifications:
   email: false
