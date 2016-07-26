@@ -288,7 +288,8 @@ class AuthControllerTest extends ControllerTestCase {
 		$this->assertEquals($this->headers['X-GPGAuth-Progress'], 'complete', 'The progress indicator should be set to complete');
 
 		// Authentication token should be disabled at that stage
-		$this->assertTrue(empty($AuthToken->isValid($uuid, Common::uuid('user.id.ada'))), 'There should a valid auth token');
+		$isValid = $AuthToken->isValid($uuid, Common::uuid('user.id.ada'));
+		$this->assertTrue(empty($isValid), 'There should a valid auth token');
 
 		// Check if we can access users
 		$r = json_decode($this->testAction('/users.json', array('return' => 'contents', 'method' => 'GET'), true));
