@@ -71,9 +71,6 @@ before_script:
   - sed -i "s/\/home\/www-data\/.gnupg/\/home\/travis\/.gnupg/" ./app/Config/app.php
   - sed -i "s/'App.force_ssl'\s=>\strue/'App.force_ssl' => false/" ./app/Config/app.php
   - sed -i "s/'active'\s=>\sfalse,/'active' => true,/" ./app/Config/app.php
-  - gpg --allow-secret-key-import --import ./app/Config/gpg/unsecure_private.key
-  - chown travis /home/travis/.gnupg
-  - chmod -R 0777 /home/travis/.gnupg
 
 script:
   - ./app/Console/cake test app All --stderr --exclude-group SeleniumTests
