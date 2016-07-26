@@ -40,7 +40,6 @@ before_script:
   - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - phpenv rehash
   - set +H
-  - chmod -R 777 app/tmp
   - echo "<?php
     class DATABASE_CONFIG {
       public \$default = array(
