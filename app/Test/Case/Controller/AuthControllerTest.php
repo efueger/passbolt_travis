@@ -263,7 +263,8 @@ class AuthControllerTest extends ControllerTestCase {
 
 		// Check if there is a valid AuthToken in store
 		$AuthToken = Common::getModel('AuthenticationToken');
-		$this->assertTrue(!empty($AuthToken->isValid($uuid, Common::uuid('user.id.ada'))), 'There should a valid auth token');
+		$isValid = $AuthToken->isValid($uuid, Common::uuid('user.id.ada'));
+		$this->assertTrue(!empty($isValid), 'There should a valid auth token');
 
 		// Send it back!
 		$this->testAction('/auth/login', array(
